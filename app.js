@@ -33,12 +33,14 @@ https.get(url, function (response) {
       const descript = weatherData.weather[0].description;
       const icon = weatherData.weather[0].icon;
       const iconURL = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+      const windSpeed = weatherData.wind.speed;
       const res_data = {
         temp,
         description: descript,
         iconURL,
         city_name: weatherData.name,
         country: weatherData.sys.country,
+        windSpeed,
       };
       res.send(res_data);
     } else {
